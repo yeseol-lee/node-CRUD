@@ -4,6 +4,13 @@ button {
     font-size:18px;
 }
 
+.list:hover{
+    text-decoration: underline;
+}
+
+
+/* create-box */
+/* create 버튼 눌렀을 때 나오는 부분 */
 #create-box {
     display: none;
 }
