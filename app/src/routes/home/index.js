@@ -26,6 +26,10 @@ router.get("/", (req, res) => {
 });
 
 router.post("/create-process", (req, res) => {
+    const title = req.body.title;
+    const contents = req.body.contents;
+    ctrl.process.writeFile(title, contents);
+
     res.send("create하는중");
 });
 

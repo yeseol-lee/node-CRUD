@@ -16,6 +16,15 @@
 <body>
     <button id="create">CREATE</button>
 
+    <!-- 숨겨놓는 create 상자 -->
+    <div id="create-box">
+        <form action="/create-process" method="post">
+            <input id="title" name="title" nametype="text" placeholder="글 제목"><br>
+            <textarea id="contents" name="contents" cols="30" rows="10" placeholder="내용을 입력하세요"></textarea>
+            <input type="submit" value="저장하기">
+        </form>
+    </div>
+
     <!-- 이미 있는 글 목록 표시-->
     <div>
         <ul>
@@ -27,13 +36,6 @@
         <%= contents %>
 
     </div>
-    <!-- 숨겨놓는 create 상자 -->
-    <div id="create-box">
-        <form action="/create-process" method="post">
-            <input id="title" nametype="text" placeholder="글 제목"><br>
-            <textarea id="contents" cols="30" rows="10" placeholder="내용을 입력하세요"></textarea>
-            <input type="submit" value="저장하기">
-        </form>
-    </div>
+    
 </body>
 </html>

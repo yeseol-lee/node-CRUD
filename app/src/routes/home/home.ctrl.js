@@ -51,6 +51,22 @@ const process = {
         //제목으로 컨텐츠를 가져옴
         const contents = fs.readFileSync(`./database/articles/${title}`);
         return contents;
+    },
+
+    writeFile: (title, contents) => {
+        console.log(__dirname);
+        fs.writeFile(`./database/articles/${title}`, contents, (err) => {
+            if (err) return console.log(err);
+            fs.readFile(`./database/article-number.json`, (err, data) => {
+                let obj = JSON.parse(data);
+                let num = obj['article-num'];
+                num += 1;
+                obj['article-num'] = num;
+                obj['articles'][title] = num;
+                console.log(obj['articles'][title]);
+
+            })
+        });
     }
 }
 
