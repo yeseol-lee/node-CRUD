@@ -12,7 +12,8 @@
     "test": "www.js"
   },
   "scripts": {
-    "start": "nodemon ./bin/www.js",
+    "start": "npm run kill && nodemon ./bin/www.js",
+    "kill": "kill -9 $(lsof -i :3000) &>/dev/null | exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -27,26 +27,30 @@ const process = {
             return "Welcome";
         }
 
-        fs.readFile('./database/number-article.json', (err, data) => {
-            // const obj = JSON.parse(data);
+        //id번호 - 제목이 들어있는 number-article 파일에서
+        //id번호로 제목을 가져옴
+        const data = fs.readFileSync('./database/number-article.json');
+        const obj = JSON.parse(data);
+        const q = qID.toString();
+        const title = obj[q];
+        return title;
 
-            console.log(hello);
-        })
-
-        // const data = fs.readFileSync('./database/number-article.json');
-        // // console.log(data);
-        // const obj = JSON.parse(data);
-        // let id = toString(qID);
-        // console.log(obj[id]);
-        // //쿼리스트링 분석하기
-        return "나는 제목";
     },
 
     getContents: (qID) => {
         if(qID === undefined) {
             return "Welcome-Contents";
         }
-        return "나는 내용";
+
+        //id번호로 제목을 가져옴
+        const data = fs.readFileSync('./database/number-article.json');
+        const obj = JSON.parse(data);
+        const q = qID.toString();
+        const title = obj[q];
+        
+        //제목으로 컨텐츠를 가져옴
+        const contents = fs.readFileSync(`./database/articles/${title}`);
+        return contents;
     }
 }
 
