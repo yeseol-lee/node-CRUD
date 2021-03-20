@@ -22,13 +22,31 @@ const process = {
         return list;
     },
 
-    getTitle: () => {
-        //쿼리스트링 분석하기
-        return "나는 제목"
+    getTitle: (qID) => {
+        if(qID === undefined) {
+            return "Welcome";
+        }
+
+        fs.readFile('./database/number-article.json', (err, data) => {
+            // const obj = JSON.parse(data);
+
+            console.log(hello);
+        })
+
+        // const data = fs.readFileSync('./database/number-article.json');
+        // // console.log(data);
+        // const obj = JSON.parse(data);
+        // let id = toString(qID);
+        // console.log(obj[id]);
+        // //쿼리스트링 분석하기
+        return "나는 제목";
     },
 
-    getContents: () => {
-        return "나는 내용"
+    getContents: (qID) => {
+        if(qID === undefined) {
+            return "Welcome-Contents";
+        }
+        return "나는 내용";
     }
 }
 
