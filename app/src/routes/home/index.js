@@ -19,25 +19,36 @@ router.get("/", (req, res) => {
     //쿼리스트링에 id값을 가지고 있을 경우
     } else {
        res.render("index.ejs", {
-        update: '<form action="./update-process" method="post"><input type="submit" value="UPDATE"></form>',
+        update: `<a href="/update/?id=${qID}">UPDATE</a>`,
         list: ctrl.process.getList(),
         title: ctrl.process.getTitle(qID),
         contents: ctrl.process.getContents(qID)
         
-        // update: '<form action="./update-process" method="post"><input type="submit" value="UPDATE"></form>',
-        // delete: '<form action="./delete-process" method="post"><input type="submit" value="DELETE"></form>'
-       });
+      });
     }
     
 });
+
+router.get("/update", (req, res) => {
+    let qID = req.query.id;
+    let title = ctrl.process.getTitle(qID);
+    let contents = ctrl.process.getContents(qID);
+
+    res.render("update.ejs", {
+        input: `<input type="text" value=${title} name=${qID}>`,
+        textarea: `<textarea>${contents}</textarea>`
+    });
+})
 
 router.post("/create-process", (req, res) => {
     const title = req.body.title;
     const contents = req.body.contents;
     ctrl.process.writeFile(title, contents);
 
-    res.send("create하는중");
+    res.send("create 완료");
 });
+
+
 
 
 
