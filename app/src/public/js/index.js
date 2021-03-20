@@ -9,14 +9,15 @@ createBtn.addEventListener("click", () => {
     style.display === "block" ? style.display = "none" : style.display = "block";
 });
 
+// 삭제 예정
 //글목록 list클릭 시 발생하는 이벤트
-const listArr = document.getElementsByClassName("list");
-console.log(listArr);
+// const listArr = document.getElementsByClassName("list");
+// console.log(listArr);
 
-let i;
-for (i = 0; i <listArr.length; i++) {
-    listArr[i].addEventListener("click", () => {
-        alert("hello");
-    })
-}
+// let i;
+// for (i = 0; i <listArr.length; i++) {
+//     listArr[i].addEventListener("click", () => {
+//         alert("hello");
+//     })
+// }
 
