@@ -15,6 +15,13 @@
 </head>
 <body>
     <button id="create">CREATE</button>
+
+    <!-- 이미 있는 글 목록 표시-->
+    <div>
+        <ul>
+            <%= list %>
+        </ul>
+    </div>
     <!-- 숨겨놓는 create 상자 -->
     <div id="create-box">
         <form action="/create-process" method="post">
