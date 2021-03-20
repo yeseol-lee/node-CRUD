@@ -64,11 +64,18 @@ const process = {
                 num += 1;
                 obj['article-num'] = num;
                 obj['articles'][title] = num;
-                console.log(obj['articles'][title]);
-                console.log("objecy", obj);
                 fs.writeFile(`./database/article-number.json`, JSON.stringify(obj), (err) => {
                     console.log("hello");
                 });
+
+                //number-article 파일에도 정보 기입하기
+                fs.readFile(`./database/number-article.json`, (err, data) => {
+                    let obj = JSON.parse(data);
+                    obj[num] = title;
+                    fs.writeFile(`./database/number-article.json`, JSON.stringify(obj), (err) => {
+                        console.log("hello2");
+                    })
+                })
             })
         });
     }
