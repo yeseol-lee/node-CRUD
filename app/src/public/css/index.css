@@ -4,6 +4,11 @@ button {
     font-size:18px;
 }
 
+input {
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+}
 .list:hover{
     text-decoration: underline;
 }

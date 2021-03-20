@@ -53,7 +53,6 @@ const process = {
         return contents;
     },
 
-    //여기 수정중 ***************
     writeFile: (title, contents) => {
         console.log(__dirname);
         fs.writeFile(`./database/articles/${title}`, contents, (err) => {
