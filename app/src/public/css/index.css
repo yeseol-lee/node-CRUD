@@ -1,0 +1,17 @@
+button {
+    width: 100px;
+    height: 40px;
+    font-size:18px;
+}
+
+#create-box {
+    display: none;
+}
+
+#create-box input{
+    width: 400px;
+}
+
+#create-box textarea {
+    width: 400px;
+}

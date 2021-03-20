@@ -1,1 +1,27 @@
-<h1>hello hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> 
+    <link rel="stylesheet" href="/css/index.css">    
+
+    <!-- app.js에서 미들웨어 처리해준 src/public 안의 js폴더 안으로 들어갈수있게 됨.-->
+    <!-- script 태그의 defer 속성은 페이지가 모두 로드된 후에 해당 외부 스크립트가 실행됨을 명시합니다. -->
+    <script src="/js/index.js" defer></script>
+    <title>CRUD</title>
+</head>
+<body>
+    <button id="create">CREATE</button>
+    <!-- 숨겨놓는 create 상자 -->
+    <div id="create-box">
+        <form action="/create-process" method="post">
+            <input id="title" nametype="text" placeholder="글 제목"><br>
+            <textarea id="contents" cols="30" rows="10" placeholder="내용을 입력하세요"></textarea>
+            <input type="submit" value="저장하기">
+        </form>
+    </div>
+</body>
+</html>
