@@ -1,3 +1,5 @@
-##nodejs
-#CRUD
-#started at 21/03/19
+<h1> nodejs </h1>
+## CRUD 기능이 있는 간단한 프로그램
+## from 21/03/19 to 21/03/21 (작업기간: 3일)
+
+
