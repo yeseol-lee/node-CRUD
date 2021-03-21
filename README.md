@@ -51,3 +51,7 @@
   <li>articles폴더에서 해당 파일을 삭제한다</li>
 </ol>
 
+## 프론트 이미지
+<img width="593" alt="Screen Shot 2021-03-21 at 19 52 36" src="https://user-images.githubusercontent.com/66362967/111902112-199aff00-8a7f-11eb-9f66-d369b31144c5.png">
+<img width="509" alt="Screen Shot 2021-03-21 at 19 52 53" src="https://user-images.githubusercontent.com/66362967/111902113-1acc2c00-8a7f-11eb-895a-ab58c442e5ba.png">
+
