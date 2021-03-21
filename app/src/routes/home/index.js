@@ -3,6 +3,7 @@
 const express = require("express");
 const router = express.Router();
 const fs = require('fs');
+const ctrlJson = require("./ctrl-json.js");
 
 const ctrl = require("./home.ctrl.js");
 
@@ -13,6 +14,7 @@ router.get("/", (req, res) => {
     if (qID === undefined) {
         res.render("index.ejs", {
             update: "",
+            ddelete: "",
             list: ctrl.process.getList(),
             title: ctrl.process.getTitle(qID),
             contents: ctrl.process.getContents(qID)
@@ -22,6 +24,7 @@ router.get("/", (req, res) => {
     } else {
        res.render("index.ejs", {
         update: `<a href="/update/?id=${qID}">UPDATE</a>`,
+        ddelete: `<a href="/delete/?id=${qID}">DELETE</a>`,
         list: ctrl.process.getList(),
         title: ctrl.process.getTitle(qID),
         contents: ctrl.process.getContents(qID)
@@ -47,40 +50,55 @@ router.post(("/update-process"), (req, res) => {
     const newTitle = req.body.title;
     const newContents = req.body.textarea;
     const qID = parseInt(req.body.qID);
-    
+    const oldTitle = ctrlJson.getTitle(qID);
 
     //새로운 제목으로 제이슨 파일 두개 수정하기
+    ctrlJson.update(qID, newTitle);
     
-    // 1. number-article 파일을 열어서 예전제목을 받고, 새로운 제목으로 수정한다
-    const data = fs.readFileSync('./database/number-article.json');
-    const obj = JSON.parse(data);
-    const q = qID.toString();
-    const oldTitle = obj[q];
-
-    obj[q] = newTitle;
-
-    //2. article-number파일을 열어서 예전제목을 이용해서 key값 수정하기
-    const data2 = fs.readFileSync('./database/article-number.json');
-    const obj2 = JSON.parse(data2);
-    const articles = obj2.articles;
-
-    delete articles[oldTitle];
-    articles[newTitle] = qID;
-
-    //바꾼값을 파일에 저장하자
-    obj2.articles = articles;
-    fs.writeFile(`./database/article-number.json`, JSON.stringify(obj2), (err) => {
-        console.log("hello");
-    });
-
-    //메인글 수정하기
-
+    //메인파일 rename, 본문 수정하기
     fs.rename(`./database/articles/${oldTitle}`, `./database/articles/${newTitle}`, () => {
         fs.writeFile(`./database/articles/${newTitle}`, newContents, 'utf8', () => {
             console.log("파일 수정 완료");
         })
     })   
     res.send("ppp");
+})
+
+router.get("/delete", (req, res) => {
+    let qID = req.query.id;
+    let title = ctrl.process.getTitle(qID);
+
+    //두 개의 제이슨 파일에서 qID에 해당하는 정보를 삭제하자
+    //1. article-number 파일
+    fs.readFile('./database/article-number.json', (err, data) => {
+        const obj = JSON.parse(data);
+        const articles = obj.articles;
+        delete articles[title];
+        obj.articles = articles;
+
+        //콜백없음
+        fs.writeFile('./database/article-number.json', JSON.stringify(obj), (err) => {
+            console.log("article-num 변경완료");
+        });
+    })
+    //2. number-article 파일
+    fs.readFile('./database/number-article.json', (err, data) => {
+        const obj = JSON.parse(data);
+        const q = qID.toString();
+        delete obj[q];
+
+        fs.writeFile('./database/number-article.json', JSON.stringify(obj), (err) => {
+            console.log("number-article 변경완료");
+        });
+    })
+
+    //메인파일도 삭제하자
+
+    fs.unlink(`./database/articles/${title}`, (err) => {
+        //삭제 후 리다이렉션하기
+        res.redirect('/');
+    });
+
 })
 
 router.post("/create-process", (req, res) => {
