@@ -16,8 +16,8 @@ const process = {
         const q = qID.toString();
         oldTitle = obj[q];
         obj[q] = newTitle;
-        fs.writeFile('./database/number-article.json', JSON.stringify(obj), () => {
-            console.log("number-article수정완료");
+        fs.writeFile('./database/number-article.json', JSON.stringify(obj), (err) => {
+            if(err) console.log(err);
         })
         
         //2. article-number파일 key값을 oldTitle -> newTitle로 변경
@@ -30,9 +30,35 @@ const process = {
         //바꾼 값을 저장
         obj2.articles = articles;
         fs.writeFile(`./database/article-number.json`, JSON.stringify(obj2), (err) => {
-            console.log("hello");
+            if(err) console.log(err);
         });
 
+    },
+
+    delete: (qID, title) => {
+        //1. article-number 파일
+        fs.readFile('./database/article-number.json', (err, data) => {
+            const obj = JSON.parse(data);
+            const articles = obj.articles;
+            delete articles[title];
+            obj.articles = articles;
+
+            //콜백없음
+            fs.writeFile('./database/article-number.json', JSON.stringify(obj), (err) => {
+                if(err) console.log(err);
+            });
+        })
+
+        //2. number-article 파일
+        fs.readFile('./database/number-article.json', (err, data) => {
+            const obj = JSON.parse(data);
+            const q = qID.toString();
+            delete obj[q];
+
+            fs.writeFile('./database/number-article.json', JSON.stringify(obj), (err) => {
+                if(err) console.log(err);
+            });
+        })
     }
 
     

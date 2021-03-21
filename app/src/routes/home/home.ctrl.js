@@ -58,7 +58,7 @@ const process = {
                 obj['article-num'] = num;
                 obj['articles'][title] = num;
                 fs.writeFile(`./database/article-number.json`, JSON.stringify(obj), (err) => {
-                    console.log("hello");
+                    if(err) console.log(err);
                 });
 
                 //number-article 파일에도 정보 기입하기
@@ -66,7 +66,7 @@ const process = {
                     let obj = JSON.parse(data);
                     obj[num] = title;
                     fs.writeFile(`./database/number-article.json`, JSON.stringify(obj), (err) => {
-                        console.log("hello2");
+                        if(err) console.log(err);
                     })
                 })
             })
