@@ -1,2 +1,0 @@
-querystring에 id값이 있는 경우에만 update, delete버튼을 추가하려고 하는데,
-ejs파일에서 Unexpected token ')' in ... 에러가 나는중
