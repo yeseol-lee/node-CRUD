@@ -11,7 +11,7 @@
   <li>index.ejs에있는 list변수가 파일목록을 표시한다
   <li>home.ctrl.js파일의 getList 함수가 '글의 제목-id값'이 들어있는 파일(article-number.json)을 불러온다</li>
   <li>articles 폴더에서 글목록을 불러온다</li>
-  <li>전에 가져온 '글의 제목-id값'데이터를 바탕으로 각 li태그안 a의 query id값을 부여해서 html코드를 </li>
+  <li>전에 가져온 '글의 제목-id값'데이터를 바탕으로 각 li태그안 a의 query id값을 부여해서 html코드를 생성한다</li>
   <li>list변수를 반환한다</li>
 </ol>
 
