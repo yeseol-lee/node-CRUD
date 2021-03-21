@@ -40,7 +40,7 @@
   <li>routes/index.js의 /update-process에서 정보를 받는다</li>
   <li>ctrl-json파일의 update(qID, newTitle)함수를 실행한다</li>
   <li>이 함수는 article-number.json과 number-article.json파일의 제목부분을 업데이트 한다</li>
-  <li>articles폴더에 있는 메인파일의 이름을 수정하고, 내용도 수정한다<li>
+  <li>articles폴더에 있는 메인파일의 이름을 수정하고, 내용도 수정한다</li>
 </ol>
 
 ### DELETE 기능
@@ -48,7 +48,6 @@
   <li>delete는 쿼리스트링에 id값을가지는 링크이다</li>
   <li>누르면 라우터의 /delete-process로 이동한다</li>
   <li>ctrl-json파일의 delete함수가 article-number.json, number-article.json파일의 해당 정보를 삭제한다</li>
-  <li>articles폴더에서 해당 파일을 </li>
-</ol>ㄹㄹ
+  <li>articles폴더에서 해당 파일을 삭제한다</li>
 </ol>
-</ol>
+
