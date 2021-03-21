@@ -6,19 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> 
+    <link rel="stylesheet" href="/css/update.css">
     <title>CRUD</title>
 </head>
 <body>
+    <div id="update-wrapper">
+        <h1>UPDATE</h1>
+        <form action="/update-process" method="post">
+            <%- hiddenInput %>
+            <label>Title</label>
+            <%- input %>
+            <br>
+            <label>Contents</label>
+            <%- textarea %>
+            <input id="update-btn" type="submit" value="UPDATE">
+        </form>
+        <button id="delete-btn" >DELETE</button>
+    </div>
 
-    <form action="/update-process" method="post">
-        <%- hiddenInput %>
-        <%- input %>
-        <br>
-        <%- textarea %>
-        <input type="submit" value="UPDATE">
-    </form>
-    <button>DELETE</button>
+    
 
 </body>
 </html>

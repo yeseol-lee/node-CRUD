@@ -4,6 +4,31 @@ button {
     font-size:18px;
 }
 
+/* a태그랑 버튼 디자인 같게하기*/
+button {
+    display:inline-block;padding:6px 14px;border:2px solid #ddd;color:black;text-decoration:none;font-weight:700;text-transform:uppercase;margin:15px 5px 0;transition:all .2s;min-width:100px;text-align:center;font-size:14px; 
+    background-color: white;font-family: Georgia, "Times New Roman", serif;
+}
+button:hover {
+    background:#ddd;color:#777;
+}
+.btn{display:inline-block;padding:9px 3px;border:2px solid #ddd;color:black;text-decoration:none;font-weight:700;text-transform:uppercase;margin:15px 5px 0;transition:all .2s;min-width:100px;text-align:center;font-size:14px;
+    font-family: Georgia, "Times New Roman", serif;}
+.btn:hover,.btn.hover{background:#ddd;color:#777}
+
+/* list 디자인 */
+#list-box {
+    margin: 8px;
+    padding: 15px;
+    background-color:#ddd;
+}
+ul li {
+    list-style: none;
+    margin: 10px;
+    font-size: 20px;
+    
+}
+
 input {
     width: 100px;
     height: 40px;
@@ -14,15 +39,22 @@ input {
 }
 
 
+
 /* create-box */
 /* create 버튼 눌렀을 때 나오는 부분 */
 #create-box {
     display: none;
+    margin: 10px;
 }
 
 #create-box input{
     width: 400px;
 }
+
+#create-box textarea {
+    display: block;
+}
+
 
 #create-box textarea {
     width: 400px;

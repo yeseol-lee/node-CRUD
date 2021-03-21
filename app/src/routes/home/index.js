@@ -23,8 +23,8 @@ router.get("/", (req, res) => {
     //쿼리스트링에 id값을 가지고 있을 경우
     } else {
        res.render("index.ejs", {
-        update: `<a href="/update/?id=${qID}">UPDATE</a>`,
-        ddelete: `<a href="/delete-process/?id=${qID}">DELETE</a>`,
+        update: `<a href="/update/?id=${qID}" class="btn">UPDATE</a>`,
+        ddelete: `<a href="/delete-process/?id=${qID}" class="btn">DELETE</a>`,
         list: ctrl.process.getList(),
         title: ctrl.process.getTitle(qID),
         contents: ctrl.process.getContents(qID)
@@ -41,7 +41,7 @@ router.get("/update", (req, res) => {
 
     res.render("update.ejs", {
         hiddenInput: `<input type="hidden" value="${qID}" name="qID">`,
-        input: `<input type="text" value=${title} name="title">`,
+        input: `<input type="text" value=${title} name="title" id="update-title" >`,
         textarea: `<textarea name="textarea">${contents}</textarea>`
     });
 })

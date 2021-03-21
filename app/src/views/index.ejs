@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> 
     <link rel="stylesheet" href="/css/index.css">    
 
     <!-- app.js에서 미들웨어 처리해준 src/public 안의 js폴더 안으로 들어갈수있게 됨.-->
@@ -30,7 +29,8 @@
     </div>
 
     <!-- 이미 있는 글 목록 표시-->
-    <div>
+    <div id="list-box">
+        <h2>글 목록</h2>
         <ul>
             <%- list %>
         </ul>
