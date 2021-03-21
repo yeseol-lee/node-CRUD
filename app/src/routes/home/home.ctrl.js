@@ -1,5 +1,6 @@
 "use strict";
 const fs = require("fs");
+const ctrlJson = require("./ctrl-json.js");
 
 const process = {
 
@@ -29,10 +30,7 @@ const process = {
 
         //id번호 - 제목이 들어있는 number-article 파일에서
         //id번호로 제목을 가져옴
-        const data = fs.readFileSync('./database/number-article.json');
-        const obj = JSON.parse(data);
-        const q = qID.toString();
-        const title = obj[q];
+        const title = ctrlJson.getTitle(qID);
         return title;
 
     },
@@ -41,12 +39,8 @@ const process = {
         if(qID === undefined) {
             return "Welcome-Contents";
         }
-
         //id번호로 제목을 가져옴
-        const data = fs.readFileSync('./database/number-article.json');
-        const obj = JSON.parse(data);
-        const q = qID.toString();
-        const title = obj[q];
+        const title = ctrlJson.getTitle(qID);
         
         //제목으로 컨텐츠를 가져옴
         const contents = fs.readFileSync(`./database/articles/${title}`);
