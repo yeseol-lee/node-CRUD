@@ -10,14 +10,14 @@
     <title>CRUD</title>
 </head>
 <body>
-    <button>UPDATE</button>
-    <button>DELETE</button>
 
-    <form action="/update-process">
+    <form action="/update-process" method="post">
         <%- input %>
         <br>
         <%- textarea %>
+        <input type="submit" value="UPDATE">
     </form>
+    <button>DELETE</button>
 
 </body>
 </html>

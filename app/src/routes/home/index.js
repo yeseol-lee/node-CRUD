@@ -35,9 +35,17 @@ router.get("/update", (req, res) => {
     let contents = ctrl.process.getContents(qID);
 
     res.render("update.ejs", {
-        input: `<input type="text" value=${title} name=${qID}>`,
-        textarea: `<textarea>${contents}</textarea>`
+        input: `<input type="text" value=${title} name="title">`,
+        textarea: `<textarea name="textarea">${contents}</textarea>`
     });
+})
+
+router.post(("/update-process"), (req, res) => {
+    const newTitle = req.body.title;
+    const newContents = req.body.textarea;
+    console.log(newTitle);
+    console.log(newContents);
+    res.send("ppp");
 })
 
 router.post("/create-process", (req, res) => {
