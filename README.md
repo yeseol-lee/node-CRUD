@@ -1,6 +1,6 @@
 <h1> nodejs </h1>
 ## CRUD 기능이 있는 간단한 프로그램
-## from 21/03/19 to 21/03/21 (작업기간: 3일)
+## from 21/03/19 to 21/03/21 (제작기간: 3일)
 
 ## 폴더구조
 <img width="713" alt="Screen Shot 2021-03-21 at 19 03 04" src="https://user-images.githubusercontent.com/66362967/111900873-41d32f80-8a78-11eb-9bac-91e82fd0a099.png">
