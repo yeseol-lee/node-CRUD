@@ -43,7 +43,7 @@
   <li>articles폴더에 있는 메인파일의 이름을 수정하고, 내용도 수정한다</li>
 </ol>
 
-### DELETE 기능
+### DELETE 기능 
 <ol>
   <li>delete는 쿼리스트링에 id값을가지는 링크이다</li>
   <li>누르면 라우터의 /delete-process로 이동한다</li>
